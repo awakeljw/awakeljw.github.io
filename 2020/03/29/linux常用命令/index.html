@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>redis 在windows下的安装 | Hexo</title>
-  <meta name="keywords" content=" windows ">
-  <meta name="description" content="redis 在windows下的安装 | Hexo">
+  <title>linux常用命令 | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="linux常用命令 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ABOUT ME我们每天生活在碎片化的世界里，可以从搜索引擎中获得各种各样的知识，所以网络上的知识繁琐且证伪无从考究，我希望自己能将自己经常用到的知识，分享到自己的博客中，慢慢的积累一方面，可以作为一个参考，另一方面，也是一种积累。            awakeljw">
 <meta property="og:type" content="website">
@@ -327,36 +327,24 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-redis安装及使用" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">redis 在windows下的安装</h1>
+        <h1 class="article-title">linux常用命令</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="windows">windows</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color3">windows</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-29 21:06:44'>2020-03-15 21:06</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-29 21:28:14'>2020-03-29 21:06</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:71</span>
+        <span>字数:453</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -386,7 +374,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-find-exec-xargs"><span class="toc-text">1. find + exec(xargs)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-find-sed"><span class="toc-text">2. find + sed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-gt-amp-1-amp"><span class="toc-text">3. 2&gt;&amp;1 &amp;</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -402,14 +390,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>windows10上直接在应用商店下载ubuntu即可使用linux，linux 安装地址为C:\Users\（USER）\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\awakeljw</p>
-</li>
-<li><p>redis下载见下方博客文章<a href="https://www.cnblogs.com/HowieYuan/p/9259597.html" target="_blank" rel="noopener">https://www.cnblogs.com/HowieYuan/p/9259597.html</a></p>
-</li>
-<li><p>使用时先执行src/redis-server,接着再新的窗口执行redis-cli</p>
-</li>
-</ol>
+        <p>title: linux script<br>date: 2020-03-29 21:06:10<br>tags: linux<br>categories: linux</p>
+<h2 id="1-find-exec-xargs"><a href="#1-find-exec-xargs" class="headerlink" title="1. find + exec(xargs)"></a>1. find + exec(xargs)</h2><pre><code class="kotlin">find ./ \(-path &#39;./software&#39; -o -path &#39;./jdk&#39; \) -prune -o -name &#39;*.txt&#39; -exec ls {} \;
+等价于
+find ./ -path &#39;./software&#39; (-a)-prune -o -path &#39;./jdk&#39; (-a) -prune -o -name &#39;*.txt&#39; -exec (-print) ls {} \;</code></pre>
+<p>以上命令的意思上找到当前目录下除了software 和jdk目录的所有txt文件，通过ls命令列出来.</p>
+<p>语义如下</p>
+<pre><code>if -path ./software==true
+    -prune
+else if -path ./jdk == true
+    -prune
+else
+    -name &#39;*.txt&#39; -exec ls {} \;</code></pre><p>当然也可以-exec也可以使用xargs来代替，比如</p>
+<pre><code class="kotlin">find ./ \(-path &#39;./software&#39; -o -path &#39;./jdk&#39; \) -prune -o -name &#39;*.txt&#39; - print0|xargs -0 echo
+等价于
+find ./ -path &#39;./software&#39; (-a)-prune -o -path &#39;./jdk&#39; (-a) -prune -o -name &#39;*.txt&#39; -print0 | xargs -0 echo</code></pre>
+<p>-exec ls {} ; 表示的是将find的结果保存在{}里面，通过exec后面的命令来执行， ; 表示转义，表示exec命令截至。</p>
+<p>xargs是通过管道将find的结果传输到echo命令中，这里使用-print0 和 xargs -0 bi表示find的多个结果之间通过NULL连接，xargs通过NULL来分割，防止一些奇怪的符号出现。</p>
+<h2 id="2-find-sed"><a href="#2-find-sed" class="headerlink" title="2. find + sed"></a>2. find + sed</h2><pre><code>find ./ type f -name &#39;*.txt&#39; /xargs sed -i &#39;s#old#new#g&#39;
+find ./ type f -name &#39;*.txt&#39; /xargs sed -i -e &#39;$a ccc&#39; -e &#39;$a bbb&#39; #-e表示多项编辑
+find ./ type f -name &#39;*.txt&#39; /xargs sed &#39;$a bbb \
+ccc&#39; #sed在文件末尾增加多行
+</code></pre><p>sed 执行命令中加上-i 参数表示在文件中实际修改，-e表示多项命令执行后输出，</p>
+<p>在执行命令中 a 表示新增，d表示删除，p表示打印</p>
+<h2 id="3-2-gt-amp-1-amp"><a href="#3-2-gt-amp-1-amp" class="headerlink" title="3. 2&gt;&amp;1 &amp;"></a>3. 2&gt;&amp;1 &amp;</h2><pre><code>make install 2&gt;&amp;1 &amp;</code></pre><p>通过0，1，2分别表示输入，输出，ERROR，上述命令表示将错误输出到OUT中，&amp;1即是输出的地方，后面&amp;表示在后台运行</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
@@ -423,12 +427,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>redis 在windows下的安装</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">71</span></p>
+    <p><span class="copy-title">文章标题:</span>linux常用命令</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">453</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-15, 21:06:10</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:06:44</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/15/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="redis 在windows下的安装">http://awakeljw.github.io/2020/03/15/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-29, 21:06:47</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:28:14</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="linux常用命令">http://awakeljw.github.io/2020/03/29/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
