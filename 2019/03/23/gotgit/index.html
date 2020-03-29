@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | Hexo</title>
+  <title>gotgit | Hexo</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Hello World | Hexo">
+  <meta name="description" content="gotgit | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
@@ -267,9 +267,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-gotgit" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">gotgit</h1>
     
     <div class="article-meta">
         
@@ -279,7 +279,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-03-23 19:13:10'>2020-03-29 08:18</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-27 21:48:57'>2019-03-23 20:24</time>
         
     </div>
     <div class="article-meta">
@@ -312,7 +312,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gotgit奇淫技巧总结"><span class="toc-text">gotgit奇淫技巧总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -328,15 +328,137 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="gotgit奇淫技巧总结"><a href="#gotgit奇淫技巧总结" class="headerlink" title="gotgit奇淫技巧总结"></a>gotgit奇淫技巧总结</h2><blockquote>
+<p>git 以more的形式显示,git 编码颜色设置</p>
+</blockquote>
+<pre><code class="python">    git config --global pager.branch false
+    git config --add --global core.pager more
+    git config --global color.status auto
+    git config --global color.diff auto
+    git config --global color.branch auto
+    git config --global color.interative auto
+    git config --global -e #编辑git系统文件</code></pre>
+<blockquote>
+<p>git 下载安装</p>
+</blockquote>
+<pre><code class="python">    apt-get install git #ubuntu
+    yum install git #centos</code></pre>
+<blockquote>
+<p>git 连接github</p>
+</blockquote>
+<pre><code class="python">ssh-keygen -t rsa -C &quot;youemail.com&quot;</code></pre>
+<blockquote>
+<p> git 验证github是否连接成功</p>
+</blockquote>
+<pre><code>ssh -T git@github.com</code></pre><blockquote>
+<p>git 设置邮箱</p>
+</blockquote>
+<pre><code class="python">git config --global user.name &quot;name&quot;
+git config --global user.email &quot;youemail.com&quot;
+git config -l #查看config 列表</code></pre>
+<blockquote>
+<p>git 添加远程仓库</p>
+</blockquote>
+<pre><code class="python">git remote add origin git@github.com:awakeljw/hexo.git
+git push origin master</code></pre>
+<blockquote>
+<p>git 提交所有修改的文件</p>
+</blockquote>
+<pre><code class="python">git add -u #添加到暂存区
+git commit --amend #git commit到上一次提交
+git diff --cached #查看暂存与提交区的差异
+git diff HEAD #查看本地与暂存区的差异
+git pull --rebase #&gt; git 将修改移动到pull代码的最前端</code></pre>
+<blockquote>
+<p>git stash 暂存代码 </p>
+</blockquote>
+<pre><code class="python">git stash #暂存修改
+git stash pop #恢复暂存修改
+git stash apply = git stash pop #apply会保存记录
+git stash apply -q #安静模式
+git stash drop stash@{0} #删除stash队列的第一个目标
+git stash list #查看stash队列</code></pre>
+<blockquote>
+<p>git 完全替换并覆盖本地代码</p>
+</blockquote>
+<pre><code class="python">git fetch &lt;remote&gt;
+git reset --hard &lt;remote&gt;/&lt;branch&gt;</code></pre>
+<blockquote>
+<p>git push 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git push &lt;remote&gt; &lt;local_nam&gt;:&lt;remote_name&gt;
+git push &lt;remote&gt; :oldBranch #删除远程分支名称
+git push &lt;remote&gt; :oldBranch newBranch #更换远程分支名称
+git push &lt;remote&gt; -u new_name #重置新名称到本地分支的远程分支
+git push --delete &lt;remote&gt; &lt;branch&gt; #删除远程分支</code></pre>
+<blockquote>
+<p>git remote 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git remote prune &lt;remote&gt; --dry-run #查看哪些分支需要清理
+git remote prune &lt;remote&gt; #删除本地失效的远程分支
+git remote remove &lt;remote&gt; #删除远程仓库
+git remote rm &quot;remoterepo&quot; #删除远程仓库</code></pre>
+<blockquote>
+<p>git brnach 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git branch -m oldname newname #重命名本地分支
+git branch -D/d oldname #删除本地分支
+git branch --set-upstream-to &lt;remote&gt;/&lt;branch&gt; #连接本地分支与远程分支
+git branch &lt;local&gt; &lt;remote&gt;/&lt;branch&gt; #复制远程分支到本地分支</code></pre>
+<blockquote>
+<p>git worktree</p>
+</blockquote>
+<pre><code class="python">git worktree add &lt;path&gt; [&lt;branch&gt;] #复制branch到一个新的目录 -b branch 可以新建分支</code></pre>
+<blockquote>
+<p>git pull –sumudge filter lfs failed解决方法</p>
+</blockquote>
+<pre><code>git config lfs.url $(git config remote.origin.url)
+git config lfs.url</code></pre><blockquote>
+<p>(Fail to clone repository with git lfs)</p>
+</blockquote>
+<pre><code class="python">// Skip smudge - We&#39;ll download binary files later in a faster batch
+git lfs install --skip-smudge
+
+// Do git clone here
+git clone ...
+
+// Fetch all the binary files in the new clone
+git lfs pull
+
+// Reinstate smudge
+git lfs install --force</code></pre>
+<blockquote>
+<p>定位git 失败原因，查看日志</p>
+</blockquote>
+<pre><code class="python">GIT_TRACE=1 git pull origin master #在命令前面加GIT_TRACE=1可以打印详细日志
+GIT_CURL_VERBOSE=1 git pull origin master #打印更多trace日志</code></pre>
+<blockquote>
+<p>git rebase &amp;&amp; git revert</p>
+</blockquote>
+<pre><code class="python">git rebase -i HEAD~2 #修改倒数第二次提交 ，将pick 改为 edit ,如果合并则改为squash,按提示操作即可
+git revert #回退某一次修改</code></pre>
+<blockquote>
+<p>git reflog 查看历史提交记录</p>
+</blockquote>
+<pre><code class="python">git reflog
+git reset --hard HEAD@{1}</code></pre>
+<blockquote>
+<p>git diff</p>
+</blockquote>
+<pre><code class="python">git diff &gt; patch
+git apply patch</code></pre>
+<blockquote>
+<p>git config</p>
+</blockquote>
+<pre><code class="python">git config --global https.proxy &quot;xxx&quot;
+git config --global --unset https.proxy</code></pre>
+<blockquote>
+<p>git 其它</p>
+</blockquote>
+<pre><code class="python">git clean -xdf #清理本地无效文件
+git checkout . #清理本地已提交文件
+git reset HEAD . #清理暂存区文件
+git blame -L 20 +10 file #blame提交</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -350,12 +472,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Hello World</p>
+    <p><span class="copy-title">文章标题:</span>gotgit</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-29, 08:18:31</p>
-    <p><span class="copy-title">最后更新:</span>2019-03-23, 19:13:10</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/hello-world/" title="Hello World">http://yoursite.com/2020/03/29/hello-world/</a>
+    <p><span class="copy-title">发布时间:</span>2019-03-23, 20:24:17</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-27, 21:48:57</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/03/23/gotgit/" title="gotgit">http://yoursite.com/2019/03/23/gotgit/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

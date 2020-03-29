@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hello World | Hexo">
+  <title>windows 多线程编程学习 | Hexo</title>
+  <meta name="keywords" content=" windows ">
+  <meta name="description" content="windows 多线程编程学习 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
@@ -267,19 +267,25 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-windows-多线程学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">windows 多线程编程学习</h1>
     
     <div class="article-meta">
         
         
         
+        
+        <span class="tag">
+            
+            <a class="color3">windows</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-03-23 19:13:10'>2020-03-29 08:18</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-14 19:57:19'>2019-07-21 10:20</time>
         
     </div>
     <div class="article-meta">
@@ -312,7 +318,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -328,15 +334,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <ol>
+<li><p>createThread() &amp; _beginthreadex()</p>
+<p>以上两个函数都是windows下的线程创建函数，CreateThread()是windows提供的API接口。其主要区别在于cerateThread()对于C语言标准库的支持并不好，这是因为C语言标准库实现时尚不具备多线程的支持。而<em>beginthreadex()则在创建新线程是分配一个</em>  _tiddaata块，用来存放线程独享的数据，从而避免其它线程更改。<br>关于二者详细的说明可以参考<a href="https://blog.csdn.net/morewindows/article/details/7421759" target="_blank" rel="noopener">https://blog.csdn.net/morewindows/article/details/7421759</a> </p>
+</li>
+<li><p>mutex 互斥锁 （0，1）,spinlock自旋锁（信号量），原子操作CAS</p>
+<p>mutex占用CPU资源，容易造成锁等待时间过长</p>
+<p>spinlock适合锁时间较短的场景，不占用CPU资源</p>
+<p>CAS即compare and swap,gcc中是__sync_val_compare_and_swap，效率更高，一般使用场景比较简单像自增等，优先使用原子操作。</p>
+</li>
+<li><p>使用示例，注意<em>编译时使用gcc thread.c -o thread -lpthread</em></p>
+</li>
+</ol>
+<pre><code class="c">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+
+
+#define THREAD_NUM 5
+
+
+pthread_mutex_t mutex;
+pthread_spinlock_t spinlock;
+
+int inc(int* value, int add){
+        int old;
+
+        __asm__ volatile(
+                &quot;lock;xaddl %2, %1;&quot;
+                : &quot;=a&quot; (old)
+                : &quot;m&quot; (*value), &quot;a&quot; (add)
+                : &quot;cc&quot;, &quot;memory&quot;
+
+        );
+        return old;
+}
+void* thread_proc(void *arg){
+        int *count = (int*)arg;
+        int i = 0;
+
+        while(i++ &lt; 1000){
+#if 0
+                pthread_mutex_lock(&amp;mutex);
+                (*count)++;
+                pthread_mutex_unlock(&amp;mutex);
+
+                pthread_spin_lock(&amp;spinlock);
+                (*count)++;
+                pthread_spin_unlock(&amp;spinlock);
+#endif
+                inc (count, 1);
+        }
+}
+
+int main()
+{
+        int count = 0;
+        pthread_t thread_id[THREAD_NUM];
+
+        pthread_mutex_init(&amp;mutex, NULL);
+        pthread_spin_init(&amp;spinlock, PTHREAD_PROCESS_SHARED);
+
+        for (int i = 0; i &lt; THREAD_NUM; i++){
+
+                pthread_create(&amp;thread_id[i], NULL, thread_proc, &amp;count);
+
+        }
+        sleep(1);
+        for (int i = 0; i &lt; 10; i++){
+                printf(&quot;count --&gt; %d\n&quot;,count);
+                sleep(1);
+        }
+
+}</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -350,12 +419,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Hello World</p>
+    <p><span class="copy-title">文章标题:</span>windows 多线程编程学习</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="John Doe">John Doe</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-29, 08:18:31</p>
-    <p><span class="copy-title">最后更新:</span>2019-03-23, 19:13:10</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/hello-world/" title="Hello World">http://yoursite.com/2020/03/29/hello-world/</a>
+    <p><span class="copy-title">发布时间:</span>2019-07-21, 10:20:10</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-14, 19:57:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/21/windows-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="windows 多线程编程学习">http://yoursite.com/2019/07/21/windows-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
