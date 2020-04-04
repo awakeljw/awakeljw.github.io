@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Dijskra单源最短路径 | Hexo</title>
+  <title>Dijskra算法，Bellman-ford算法， Floyd算法 | Hexo</title>
   <meta name="keywords" content=" 算法 ">
-  <meta name="description" content="Dijskra单源最短路径 | Hexo">
+  <meta name="description" content="Dijskra算法，Bellman-ford算法， Floyd算法 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ABOUT ME我们每天生活在碎片化的世界里，可以从搜索引擎中获得各种各样的知识，所以网络上的知识繁琐且证伪无从考究，我希望自己能将自己经常用到的知识，分享到自己的博客中，慢慢的积累一方面，可以作为一个参考，另一方面，也是一种积累。            awakeljw">
 <meta property="og:type" content="website">
@@ -167,7 +167,7 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(9)</small></div></li>
+    <li><div class="all active">全部文章<small>(10)</small></div></li>
     
         
             
@@ -219,8 +219,8 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="9">
-<input type="hidden" id="yelog_site_word_count" value="2.8k">
+<input type="hidden" id="yelog_site_posts_number" value="10">
+<input type="hidden" id="yelog_site_word_count" value="3.3k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -284,18 +284,10 @@
     <nav id="title-list-nav">
         
         <a  class="算法 "
-           href="/2020/03/29/BF%E7%AE%97%E6%B3%95/"
-           data-tag="算法"
-           data-author="" >
-            <span class="post-title" title="BF算法">BF算法</span>
-            <span class="post-date" title="2020-03-29 10:20:10">2020/03/29</span>
-        </a>
-        
-        <a  class="算法 "
            href="/2020/03/29/Dijskra/"
            data-tag="算法"
            data-author="" >
-            <span class="post-title" title="Dijskra单源最短路径">Dijskra单源最短路径</span>
+            <span class="post-title" title="Dijskra算法，Bellman-ford算法， Floyd算法">Dijskra算法，Bellman-ford算法， Floyd算法</span>
             <span class="post-date" title="2020-03-29 10:20:10">2020/03/29</span>
         </a>
         
@@ -355,6 +347,22 @@
             <span class="post-date" title="2020-04-04 12:13:53">2020/04/04</span>
         </a>
         
+        <a  class="算法 "
+           href="/2020/03/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="BF与KMP字符串匹配算法">BF与KMP字符串匹配算法</span>
+            <span class="post-date" title="2020-03-29 10:20:10">2020/03/29</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/04/04/tech/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="postgres优质资源">postgres优质资源</span>
+            <span class="post-date" title="2020-04-04 22:20:10">2020/04/04</span>
+        </a>
+        
     </nav>
 </div>
     </div>
@@ -369,7 +377,7 @@
     <div class="pjax">
         <article id="post-Dijskra" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Dijskra单源最短路径</h1>
+        <h1 class="article-title">Dijskra算法，Bellman-ford算法， Floyd算法</h1>
     
     <div class="article-meta">
         
@@ -391,12 +399,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-29 21:48:28'>2020-03-29 10:20</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-04 22:52:11'>2020-03-29 10:20</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3</span>
+        <span>字数:282</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -426,7 +434,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#to-do-list"><span class="toc-text">to do list</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bellman-ford算法模板"><span class="toc-text">Bellman-ford算法模板</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -442,7 +450,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="to-do-list"><a href="#to-do-list" class="headerlink" title="to do list"></a>to do list</h2>
+        <h2 id="Bellman-ford算法模板"><a href="#Bellman-ford算法模板" class="headerlink" title="Bellman-ford算法模板"></a>Bellman-ford算法模板</h2><pre><code>void Bellman_Ford()
+{
+    for(int i=0;i&lt;n;i++) 
+        dis[i]=INF;
+    dis[0]=0;
+
+    for(int i=1;i&lt;=n-1;i++)//枚举除终点外的所有点
+        for(int j=1;j&lt;=m;j++)//枚举所有边
+        {
+            int x=u[j];//边j的起点
+            int y=v[j];//边j的终点
+            if(dis[x]&lt;INF)//松弛
+                dis[y]=min(dis[y],dis[x]+w[j]);
+        }
+}</code></pre><p>可参考leetcode解法：<a href="https://leetcode-cn.com/submissions/detail/54517471/" target="_blank" rel="noopener">K站中转中最便宜的航站</a></p>
+<p>可参考博客 <a href="https://www.luogu.com.cn/blog/123-day/eeeeee" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/123-day/eeeeee</a></p>
+<p><a href="https://www.jianshu.com/p/b876fe9b2338" target="_blank" rel="noopener">https://www.jianshu.com/p/b876fe9b2338</a></p>
+<p>Dijskra算法模板</p>
+<pre><code>for(int i=1;i&lt;=n;i++) {
+    int min=INF;
+    int u=0;
+
+    for(int v=1;v&lt;=n;v++) { //在没有被访问过的点中找一个顶点u，使得dis[u]是最小的
+        if( vis[v]==false &amp;&amp; dis[v]&lt;min) {
+            min=dis[v];
+            u=v;
+        }
+    }
+    if(u==0)
+        break;
+
+    vis[u]=true;//u标记为已确定的最短路径
+    for(int v=1;j&lt;=n;j++) { //枚举与u相连的每个未确定的最短路的顶点
+        if(dis[u]+w[u][v]&lt;dis[v]) {
+            dis[j]=dis[u]+w[u][v]; //更新最短路径
+            pre[v]=u;//记录前驱
+        }
+    }
+}</code></pre><p>具体可以参考：<a href="https://www.luogu.com.cn/blog/123-day/dijkstra-suan-fa" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/123-day/dijkstra-suan-fa</a></p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
     </div>
@@ -455,12 +502,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Dijskra单源最短路径</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">3</span></p>
+    <p><span class="copy-title">文章标题:</span>Dijskra算法，Bellman-ford算法， Floyd算法</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">282</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
     <p><span class="copy-title">发布时间:</span>2020-03-29, 10:20:10</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:48:28</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/Dijskra/" title="Dijskra单源最短路径">http://awakeljw.github.io/2020/03/29/Dijskra/</a>
+    <p><span class="copy-title">最后更新:</span>2020-04-04, 22:52:11</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/Dijskra/" title="Dijskra算法，Bellman-ford算法， Floyd算法">http://awakeljw.github.io/2020/03/29/Dijskra/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
