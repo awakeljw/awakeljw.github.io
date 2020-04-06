@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>leetcode刷题-二叉树专题 | Hexo</title>
+  <title>leetcode刷题-回溯算法 | Hexo</title>
   <meta name="keywords" content=" leetcode 数据结构 ">
-  <meta name="description" content="leetcode刷题-二叉树专题 | Hexo">
+  <meta name="description" content="leetcode刷题-回溯算法 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ABOUT ME我们每天生活在碎片化的世界里，可以从搜索引擎中获得各种各样的知识，所以网络上的知识繁琐且证伪无从考究，我希望自己能将自己经常用到的知识，分享到自己的博客中，慢慢的积累一方面，可以作为一个参考，另一方面，也是一种积累。            awakeljw">
 <meta property="og:type" content="website">
@@ -451,9 +451,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-leetcode之二叉树" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode回溯" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">leetcode刷题-二叉树专题</h1>
+        <h1 class="article-title">leetcode刷题-回溯算法</h1>
     
     <div class="article-meta">
         
@@ -475,12 +475,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-05 22:54:20'>2020-04-05 22:28</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-06 12:58:47'>2020-04-06 12:57</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:108</span>
+        <span>字数:3</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -526,35 +526,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>剑指offer33：二叉搜索树的后序遍历序列</p>
-<pre><code class="c++">bool VerifySequenceOfBST(int sequence[], int length)
-{
-    if (sequence == NULL || length &lt;= 0) {
-        return false;
-    }
-    int root = sequence[length - 1]; //后序遍历最后是根节点
-    int i = 0;
-    for (i = 0; i &lt; length - 1; i++) {
-        if (sequence[i] &gt; root) {
-            break;
-        }
-    }
-    int j = i;
-    for (; j &lt; length - 1; j++) {
-        if (sequence[j] &lt; root) {
-            return false;
-        }
-    }
-    bool left = true;
-    if(i &gt; 0) {
-        left = VerifySequenceOfBST(sequence, i);
-    }
-    bool right = true;
-    if (i &lt; length - 1) {
-        right = VerifySequenceOfBST(sequence + i, length - i - 1);
-    }
-    return left &amp;&amp; right;
-}</code></pre>
+        <p>to do list</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
@@ -568,12 +540,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>leetcode刷题-二叉树专题</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">108</span></p>
+    <p><span class="copy-title">文章标题:</span>leetcode刷题-回溯算法</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-05, 22:28:10</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-05, 22:54:20</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/05/leetcode%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/" title="leetcode刷题-二叉树专题">http://awakeljw.github.io/2020/04/05/leetcode%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-06, 12:57:10</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-06, 12:58:47</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/06/leetcode%E5%9B%9E%E6%BA%AF/" title="leetcode刷题-回溯算法">http://awakeljw.github.io/2020/04/06/leetcode%E5%9B%9E%E6%BA%AF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
