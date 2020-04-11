@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GDB | Hexo</title>
-  <meta name="keywords" content=" GDB ">
-  <meta name="description" content="GDB | Hexo">
+  <title>沉默的大多数 | Hexo</title>
+  <meta name="keywords" content=" 随笔 ">
+  <meta name="description" content="沉默的大多数 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="ABOUT ME我们每天生活在碎片化的世界里，可以从搜索引擎中获得各种各样的知识，所以网络上的知识繁琐且证伪无从考究，我希望自己能将自己经常用到的知识，分享到自己的博客中，慢慢的积累一方面，可以作为一个参考，另一方面，也是一种积累。            awakeljw">
 <meta property="og:type" content="website">
@@ -559,9 +559,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-gdb" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-沉默的大多数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">GDB</h1>
+        <h1 class="article-title">沉默的大多数</h1>
     
     <div class="article-meta">
         
@@ -569,26 +569,26 @@
         
         <span class="book">
             
-                <a  data-rel="tool">tool</a>
+                <a  data-rel="随笔">随笔</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">GDB</a>
+            <a class="color3">随笔</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-29 21:48:30'>2020-03-29 20:24</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-11 22:07:50'>2020-04-11 21:14</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:88</span>
+        <span>字数:862</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -618,7 +618,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-gdb下载与编译"><span class="toc-text">1. gdb下载与编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-thread相关用法"><span class="toc-text">2. thread相关用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-100个GDB用法"><span class="toc-text">3. 100个GDB用法</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -634,15 +634,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-gdb下载与编译"><a href="#1-gdb下载与编译" class="headerlink" title="1. gdb下载与编译"></a>1. gdb下载与编译</h1><pre><code class="kotlin">download: https://www.gnu.org/software/gdb/
-./configure --prefix=/usr
-make -sj
-make install -sj</code></pre>
-<h1 id="2-thread相关用法"><a href="#2-thread相关用法" class="headerlink" title="2. thread相关用法"></a>2. thread相关用法</h1><pre><code class="kotlin">info threads #查看所有threads信息
-break thread_test.c:123 thread all/number
-thread apply ID1 commands #线程执行到ID1断点时执行commands后面的命令
-set scheduler-locking off/on #锁定本线程</code></pre>
-<h1 id="3-100个GDB用法"><a href="#3-100个GDB用法" class="headerlink" title="3. 100个GDB用法"></a>3. 100个GDB用法</h1><p><a href="https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md" target="_blank" rel="noopener">https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md</a></p>
+        <p>4月11日，是王小波的去世的纪念日，也不知从何开始就能记住这个日子，可能我总是想把什么寄托在王小波的身上，就像沉默的大多数一样，每个人都有自己的思想，可这思想幼稚又可笑，而将它寄托在有趣的灵魂上，那这思想也不觉得有多可笑了。</p>
+<p>看过王小波的一些书，黄金时代，白银时代，黑铁时代，红拂夜奔等吧，都没怎么认真读，可是读的时候给我的感觉很不一样，有一种莫名其妙的真实感，这种感觉至少建立在逻辑上的连贯与统一，所以读起来很舒服，我们的思维方式在现代各种媒体，社交的影响下悄悄发生了改变，失去了正常思考的能力，失去了争辩的能力，就像这形形色色的书，文字，音乐，图像都在传达了统一的思想，所有人都在追求一样的东西，成功，梦想，这并不是人作为生物，高级动物的实质，但你这么想，这么做至少可以找到认同，而不这么想就只能从王小波的书里找到认同，他告诉你你的逻辑是可以的，至少有人和你一样，这也许就是对王小波的认同吧。</p>
+<p>中国文化博大精深，在这种文化下培养的人的性格可能更多偏沉默，越是背负的越多，人就越是拘束，越是沉默，越是有礼貌。我是典型的沉默的人。越是看得透的人越不愿意跟人争辩，这一点在中国的宗教中显得尤为明显，沉默的人恰好的更多的想法的人，但他们都沉默了，思想也就埋没了，而愚蠢的，恶意的思想却更容易传播，直到沉默的人也怀疑自己确实是思想出了问题。我觉得王小波的书看上去很高深，实则很简单，越是高深的东西其实往往很简单，只是人们倾向于复杂，所以反而变得趋同。有时想想，为什么我们不在沉默中爆发，是人性懦弱，胆小，怀疑，也可能自己已经把自己锁在传统当中，根本无法抽身把，可是如果我们的文字可以击败谣言或者丑陋的新闻，也去也是可以值得一试的。</p>
+<p>不得不承认的是人多少还是有天赋的差别，就像是每个人都是带着使命出生的，所以你一定要追求别人一样的梦想，或者一样的追求，看上去不过是在浪费时间，中国人已经够努力了，但还是要继续奋斗，努力奋斗，就为了所谓的成功，梦想。可你真的有梦想吗？</p>
+<p>王小波也是工程师出身，40岁才开始写作，文字中自然带有工程师的认同，这也是读王小波的书更舒服的原因吧，也许有生之年，当写作可以养活自己的时候，我也会写一篇文章，只是为了让自己舒服，让和自己同样的人舒服，就够了吧。</p>
+<p>感谢王小波先生留下的宝贵的精神财富，向您致敬。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
@@ -656,12 +653,12 @@ set scheduler-locking off/on #锁定本线程</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>GDB</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">88</span></p>
+    <p><span class="copy-title">文章标题:</span>沉默的大多数</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">862</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-29, 20:24:17</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:48:30</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/gdb/" title="GDB">http://awakeljw.github.io/2020/03/29/gdb/</a>
+    <p><span class="copy-title">发布时间:</span>2020-04-11, 21:14:53</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-11, 22:07:50</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/11/%E6%B2%89%E9%BB%98%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0/" title="沉默的大多数">http://awakeljw.github.io/2020/04/11/%E6%B2%89%E9%BB%98%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
