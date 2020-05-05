@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GDB | Hexo</title>
-  <meta name="keywords" content=" GDB ">
-  <meta name="description" content="GDB | Hexo">
+  <title>lockfree无锁环形队列 | Hexo</title>
+  <meta name="keywords" content=" linux ">
+  <meta name="description" content="lockfree无锁环形队列 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="有序矩阵中第K小的元素  有序矩阵中的第K个最小数组和  最小的k个数   解题方法： 二分法，set排序法">
 <meta property="og:type" content="article">
@@ -588,9 +588,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-gdb" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-lockfree" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">GDB</h1>
+        <h1 class="article-title">lockfree无锁环形队列</h1>
     
     <div class="article-meta">
         
@@ -598,26 +598,26 @@
         
         <span class="book">
             
-                <a  data-rel="tool">tool</a>
+                <a  data-rel="linux">linux</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">GDB</a>
+            <a class="color1">linux</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-29 21:48:30'>2020-03-29 20:24</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-05 17:55:46'>2020-05-05 17:55</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:88</span>
+        <span>字数:72</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -647,7 +647,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-gdb下载与编译"><span class="toc-text">1. gdb下载与编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-thread相关用法"><span class="toc-text">2. thread相关用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-100个GDB用法"><span class="toc-text">3. 100个GDB用法</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -663,15 +663,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-gdb下载与编译"><a href="#1-gdb下载与编译" class="headerlink" title="1. gdb下载与编译"></a>1. gdb下载与编译</h1><pre><code class="kotlin">download: https://www.gnu.org/software/gdb/
-./configure --prefix=/usr
-make -sj
-make install -sj</code></pre>
-<h1 id="2-thread相关用法"><a href="#2-thread相关用法" class="headerlink" title="2. thread相关用法"></a>2. thread相关用法</h1><pre><code class="kotlin">info threads #查看所有threads信息
-break thread_test.c:123 thread all/number
-thread apply ID1 commands #线程执行到ID1断点时执行commands后面的命令
-set scheduler-locking off/on #锁定本线程</code></pre>
-<h1 id="3-100个GDB用法"><a href="#3-100个GDB用法" class="headerlink" title="3. 100个GDB用法"></a>3. 100个GDB用法</h1><p><a href="https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md" target="_blank" rel="noopener">https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md</a></p>
+        <ol>
+<li>lockfree 无锁环形队列ring_buffer ：tail 和head来控制写和读，当(tail+1) % QUEUE_SIZE == head 时表示队列已满，tail=head时表示队列已空。</li>
+<li>linux kfifo 参考<a href="https://blog.csdn.net/chen19870707/article/details/39899743" target="_blank" rel="noopener">https://blog.csdn.net/chen19870707/article/details/39899743</a> 从中可以学到 取模运算到位运算的优化方法，以及<a href="https://blog.csdn.net/chen19870707/article/details/39896655" target="_blank" rel="noopener">memorybarrier</a> </li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
@@ -685,12 +680,12 @@ set scheduler-locking off/on #锁定本线程</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>GDB</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">88</span></p>
+    <p><span class="copy-title">文章标题:</span>lockfree无锁环形队列</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">72</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-29, 20:24:17</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:48:30</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/gdb/" title="GDB">http://awakeljw.github.io/2020/03/29/gdb/</a>
+    <p><span class="copy-title">发布时间:</span>2020-05-05, 17:55:10</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-05, 17:55:46</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/05/05/lockfree/" title="lockfree无锁环形队列">http://awakeljw.github.io/2020/05/05/lockfree/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

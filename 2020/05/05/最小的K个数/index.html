@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GDB | Hexo</title>
-  <meta name="keywords" content=" GDB ">
-  <meta name="description" content="GDB | Hexo">
+  <title>leetcode刷题-回溯算法backtracing | Hexo</title>
+  <meta name="keywords" content=" leetcode ">
+  <meta name="description" content="leetcode刷题-回溯算法backtracing | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="有序矩阵中第K小的元素  有序矩阵中的第K个最小数组和  最小的k个数   解题方法： 二分法，set排序法">
 <meta property="og:type" content="article">
@@ -588,9 +588,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-gdb" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-最小的K个数" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">GDB</h1>
+        <h1 class="article-title">leetcode刷题-回溯算法backtracing</h1>
     
     <div class="article-meta">
         
@@ -598,26 +598,26 @@
         
         <span class="book">
             
-                <a  data-rel="tool">tool</a>
+                <a  data-rel="leetcode">leetcode</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">GDB</a>
+            <a class="color4">leetcode</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-29 21:48:30'>2020-03-29 20:24</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-05 18:02:27'>2020-05-05 18:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:88</span>
+        <span>字数:42</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -647,7 +647,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-gdb下载与编译"><span class="toc-text">1. gdb下载与编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-thread相关用法"><span class="toc-text">2. thread相关用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-100个GDB用法"><span class="toc-text">3. 100个GDB用法</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -663,15 +663,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-gdb下载与编译"><a href="#1-gdb下载与编译" class="headerlink" title="1. gdb下载与编译"></a>1. gdb下载与编译</h1><pre><code class="kotlin">download: https://www.gnu.org/software/gdb/
-./configure --prefix=/usr
-make -sj
-make install -sj</code></pre>
-<h1 id="2-thread相关用法"><a href="#2-thread相关用法" class="headerlink" title="2. thread相关用法"></a>2. thread相关用法</h1><pre><code class="kotlin">info threads #查看所有threads信息
-break thread_test.c:123 thread all/number
-thread apply ID1 commands #线程执行到ID1断点时执行commands后面的命令
-set scheduler-locking off/on #锁定本线程</code></pre>
-<h1 id="3-100个GDB用法"><a href="#3-100个GDB用法" class="headerlink" title="3. 100个GDB用法"></a>3. 100个GDB用法</h1><p><a href="https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md" target="_blank" rel="noopener">https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md</a></p>
+        <ol>
+<li><p>有序矩阵中第K<a href="https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/" target="_blank" rel="noopener">小的元素</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/" target="_blank" rel="noopener">有序矩阵中的第K个最小数组和</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/" target="_blank" rel="noopener">最小的k个数</a></p>
+</li>
+</ol>
+<p>解题方法： 二分法，set排序法</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 993007281@qq.com </span>
@@ -685,12 +685,12 @@ set scheduler-locking off/on #锁定本线程</code></pre>
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>GDB</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">88</span></p>
+    <p><span class="copy-title">文章标题:</span>leetcode刷题-回溯算法backtracing</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">42</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="awakeljw">awakeljw</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-03-29, 20:24:17</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-29, 21:48:30</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/29/gdb/" title="GDB">http://awakeljw.github.io/2020/03/29/gdb/</a>
+    <p><span class="copy-title">发布时间:</span>2020-05-05, 18:00:10</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-05, 18:02:27</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/05/05/%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" title="leetcode刷题-回溯算法backtracing">http://awakeljw.github.io/2020/05/05/%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
