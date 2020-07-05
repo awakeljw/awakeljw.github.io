@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>ARM内存管理</title>
+    <url>/2020/04/09/ARMmemory/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IO多路复用 select poll epoll</title>
+    <url>/2020/04/09/IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</url>
+    <content><![CDATA[<p>to do list</p>
+<p>参见 <a href="https://www.cnblogs.com/Anker/p/3265058.html" target="_blank" rel="noopener">https://www.cnblogs.com/Anker/p/3265058.html</a></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>c++ stl常用总结</title>
+    <url>/2020/04/06/c-stl%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<ol>
+<li>string</li>
+</ol>
+<blockquote>
+<p>string s(n, ‘\0’) //初始化</p>
+<p>s.size() == s.length()</p>
+<p>s.push_back()</p>
+<p>s.pop_back()</p>
+<p>s.find()</p>
+<p>for(char ch: string) //访问所有元素</p>
+</blockquote>
+<ol start="2">
+<li>vector</li>
+</ol>
+<blockquote>
+<p>vector<int> res(n,0) // 初始化</int></p>
+<p>res.size()</p>
+<p>res.push_back()</p>
+<p>res.pop_back()</p>
+<p>for (auto &amp;v : vector) {}</p>
+</blockquote>
+<ol start="3">
+<li>stack &amp; queue</li>
+</ol>
+<blockquote>
+<p>stack<int> sta; </int></p>
+<p>queue<int> q;</int></p>
+<p>sta.push(); q.push();</p>
+<p>sta.pop(); q.pop();</p>
+<p>sta.top();</p>
+</blockquote>
+<ol start="4">
+<li>dequeue</li>
+</ol>
+<blockquote>
+<p>deque<int> de;</int></p>
+<p>de.push_front();</p>
+<p>de.push_back();</p>
+<p>de.pop_front();</p>
+<p>de.pop_back();</p>
+</blockquote>
+<ol start="5">
+<li>map &amp; unordered_map(hash)</li>
+</ol>
+<blockquote>
+<p>map&lt;int,int&gt; map; unordered_map&lt;int, int&gt; map;</p>
+<p>unordered_map&lt;int, int&gt; ::iterator it;</p>
+<p>(<em>it).first, (</em>it).second;</p>
+<p>map[i] = j;//插入</p>
+<p>map.find(key) == map.end() // 查找</p>
+<p>for(auto &amp;m : map) {</p>
+<p>m.first;</p>
+<p>m.second}</p>
+</blockquote>
+<ol start="5">
+<li>set(红黑树) &amp; unordered_set(hash)</li>
+</ol>
+<blockquote>
+<p>unordered_set&lt;int,int&gt; set; </p>
+<p>unordered_set&lt;int,int&gt; ::iterator it;</p>
+<p>set.insert(i);</p>
+<p>set.find(key) == set.end() // 查找</p>
+<p>set 会对插入结果进行去重和排序</p>
+</blockquote>
+<ol start="5">
+<li><p>multiset</p>
+<blockquote>
+<p>不对去重但可以自动排序</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>arm异常处理</title>
+    <url>/2020/04/09/arm%20exception%20model/</url>
+    <content><![CDATA[<p>EL0-EL3</p>
+<p>to do list</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dijskra算法，Bellman-ford算法， Floyd算法</title>
+    <url>/2020/03/29/Dijskra/</url>
+    <content><![CDATA[<h2 id="Bellman-ford算法模板"><a href="#Bellman-ford算法模板" class="headerlink" title="Bellman-ford算法模板"></a>Bellman-ford算法模板</h2><pre><code>void Bellman_Ford()
+{
+    for(int i=0;i&lt;n;i++) 
+        dis[i]=INF;
+    dis[0]=0;
+
+    for(int i=1;i&lt;=n-1;i++)//枚举除终点外的所有点
+        for(int j=1;j&lt;=m;j++)//枚举所有边
+        {
+            int x=u[j];//边j的起点
+            int y=v[j];//边j的终点
+            if(dis[x]&lt;INF)//松弛
+                dis[y]=min(dis[y],dis[x]+w[j]);
+        }
+}</code></pre><p>可参考leetcode解法：<a href="https://leetcode-cn.com/submissions/detail/54517471/" target="_blank" rel="noopener">K站中转中最便宜的航站</a></p>
+<p>可参考博客 <a href="https://www.luogu.com.cn/blog/123-day/eeeeee" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/123-day/eeeeee</a></p>
+<p><a href="https://www.jianshu.com/p/b876fe9b2338" target="_blank" rel="noopener">https://www.jianshu.com/p/b876fe9b2338</a></p>
+<p>Dijskra算法模板</p>
+<pre><code>for(int i=1;i&lt;=n;i++) {
+    int min=INF;
+    int u=0;
+
+    for(int v=1;v&lt;=n;v++) { //在没有被访问过的点中找一个顶点u，使得dis[u]是最小的
+        if( vis[v]==false &amp;&amp; dis[v]&lt;min) {
+            min=dis[v];
+            u=v;
+        }
+    }
+    if(u==0)
+        break;
+
+    vis[u]=true;//u标记为已确定的最短路径
+    for(int v=1;j&lt;=n;j++) { //枚举与u相连的每个未确定的最短路的顶点
+        if(dis[u]+w[u][v]&lt;dis[v]) {
+            dis[j]=dis[u]+w[u][v]; //更新最短路径
+            pre[v]=u;//记录前驱
+        }
+    }
+}</code></pre><p>具体可以参考：<a href="https://www.luogu.com.cn/blog/123-day/dijkstra-suan-fa" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/123-day/dijkstra-suan-fa</a></p>
+<p>非常不错的算法讲解博客：<a href="https://houbb.github.io" target="_blank" rel="noopener">houbb</a> ，不过似乎需要翻墙。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集成学习 bagging &amp; boost</title>
+    <url>/2020/04/09/bagging%20&amp;%20adaboost/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/03/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>CPU乱序执行 &amp; memory barrier</title>
+    <url>/2020/04/09/cpu%20out-of-order%20&amp;%20memeory%20barrier/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gotgit</title>
+    <url>/2019/03/23/gotgit/</url>
+    <content><![CDATA[<h2 id="gotgit奇淫技巧总结"><a href="#gotgit奇淫技巧总结" class="headerlink" title="gotgit奇淫技巧总结"></a>gotgit奇淫技巧总结</h2><p>关于git的最权威指南可以参考</p>
+<p><a href="http://www.worldhello.net/gotgit/" target="_blank" rel="noopener">git权威指南</a></p>
+<blockquote>
+<p>git 以more的形式显示,git 编码颜色设置</p>
+</blockquote>
+<pre><code class="python">    git config --global pager.branch false
+    git config --add --global core.pager more
+    git config --global color.status auto
+    git config --global color.diff auto
+    git config --global color.branch auto
+    git config --global color.interative auto
+    git config --global -e #编辑git系统文件</code></pre>
+<blockquote>
+<p>git 下载安装</p>
+</blockquote>
+<pre><code class="python">    apt-get install git #ubuntu
+    yum install git #centos</code></pre>
+<blockquote>
+<p>git 连接github</p>
+</blockquote>
+<pre><code class="python">ssh-keygen -t rsa -C &quot;youemail.com&quot;</code></pre>
+<blockquote>
+<p> git 验证github是否连接成功</p>
+</blockquote>
+<pre><code>ssh -T git@github.com</code></pre><blockquote>
+<p>git 设置邮箱</p>
+</blockquote>
+<pre><code class="python">git config --global user.name &quot;name&quot;
+git config --global user.email &quot;youemail.com&quot;
+git config -l #查看config 列表</code></pre>
+<blockquote>
+<p>git 添加远程仓库</p>
+</blockquote>
+<pre><code class="python">git remote add origin git@github.com:awakeljw/hexo.git
+git push origin master</code></pre>
+<blockquote>
+<p>git 提交所有修改的文件</p>
+</blockquote>
+<pre><code class="python">git add -u #添加到暂存区
+git commit --amend #git commit到上一次提交
+git commit --amend --date=&quot;$(date -R)&quot; #修改提交日期
+git commit --amend --author &quot;New Author Name &lt;email@address.com&gt;&quot; #修改提交作者
+git diff --cached #查看暂存与提交区的差异
+git diff HEAD #查看本地与暂存区的差异
+git pull --rebase #&gt; git 将修改移动到pull代码的最前端</code></pre>
+<blockquote>
+<p>git stash 暂存代码 </p>
+</blockquote>
+<pre><code class="python">git stash #暂存修改
+git stash pop #恢复暂存修改
+git stash apply = git stash pop #apply会保存记录
+git stash apply -q #安静模式
+git stash drop stash@{0} #删除stash队列的第一个目标
+git stash list #查看stash队列</code></pre>
+<blockquote>
+<p>git 完全替换并覆盖本地代码</p>
+</blockquote>
+<pre><code class="python">git fetch &lt;remote&gt;
+git reset --hard &lt;remote&gt;/&lt;branch&gt;</code></pre>
+<blockquote>
+<p>git push 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git push &lt;remote&gt; &lt;local_nam&gt;:&lt;remote_name&gt;
+git push &lt;remote&gt; :oldBranch #删除远程分支名称
+git push &lt;remote&gt; :oldBranch newBranch #更换远程分支名称
+git push &lt;remote&gt; -u new_name #重置新名称到本地分支的远程分支
+git push --delete &lt;remote&gt; &lt;branch&gt; #删除远程分支</code></pre>
+<blockquote>
+<p>git remote 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git remote prune &lt;remote&gt; --dry-run #查看哪些分支需要清理
+git remote prune &lt;remote&gt; #删除本地失效的远程分支
+git remote remove &lt;remote&gt; #删除远程仓库
+git remote rm &quot;remoterepo&quot; #删除远程仓库</code></pre>
+<blockquote>
+<p>git brnach 奇淫技巧</p>
+</blockquote>
+<pre><code class="python">git branch -m oldname newname #重命名本地分支
+git branch -D/d oldname #删除本地分支
+git branch --set-upstream-to &lt;remote&gt;/&lt;branch&gt; #连接本地分支与远程分支
+git branch &lt;local&gt; &lt;remote&gt;/&lt;branch&gt; #复制远程分支到本地分支</code></pre>
+<blockquote>
+<p>git worktree</p>
+</blockquote>
+<pre><code class="python">git worktree add &lt;path&gt; [&lt;branch&gt;] #复制branch到一个新的目录 -b branch 可以新建分支</code></pre>
+<blockquote>
+<p>git pull –sumudge filter lfs failed解决方法</p>
+</blockquote>
+<pre><code>git config lfs.url $(git config remote.origin.url)
+git config lfs.url</code></pre><blockquote>
+<p>(Fail to clone repository with git lfs)</p>
+</blockquote>
+<pre><code class="python">// Skip smudge - We&#39;ll download binary files later in a faster batch
+git lfs install --skip-smudge
+
+// Do git clone here
+git clone ...
+
+// Fetch all the binary files in the new clone
+git lfs pull
+
+// Reinstate smudge
+git lfs install --force</code></pre>
+<blockquote>
+<p>定位git 失败原因，查看日志</p>
+</blockquote>
+<pre><code class="python">GIT_TRACE=1 git pull origin master #在命令前面加GIT_TRACE=1可以打印详细日志
+GIT_CURL_VERBOSE=1 git pull origin master #打印更多trace日志</code></pre>
+<blockquote>
+<p>git rebase &amp;&amp; git revert</p>
+</blockquote>
+<pre><code class="python">git rebase -i HEAD~2 #修改倒数第二次提交 ，将pick 改为 edit ,如果合并则改为squash,按提示操作即可
+git revert #回退某一次修改</code></pre>
+<blockquote>
+<p>git reflog 查看历史提交记录</p>
+</blockquote>
+<pre><code class="python">git reflog #查看历史记录
+git reset --hard HEAD@{1} #回退任何历史记录</code></pre>
+<blockquote>
+<p>git diff</p>
+</blockquote>
+<pre><code class="python">git diff &gt; patch
+git apply patch</code></pre>
+<blockquote>
+<p>git config</p>
+</blockquote>
+<pre><code class="python">git config --global https.proxy &quot;xxx&quot;
+git config --global --unset https.proxy</code></pre>
+<blockquote>
+<p>git 其它</p>
+</blockquote>
+<pre><code class="python">git clean -xdf #清理本地无效文件
+git checkout . #清理本地已提交文件
+git reset HEAD . #清理暂存区文件
+git blame -L 20 +10 file #blame提交
+# 设置代理
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+# 取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy</code></pre>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode刷题-回溯算法backtracing</title>
+    <url>/2020/04/06/leetcode%E5%9B%9E%E6%BA%AF/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode 数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GDB</title>
+    <url>/2020/03/29/gdb/</url>
+    <content><![CDATA[<h1 id="1-gdb下载与编译"><a href="#1-gdb下载与编译" class="headerlink" title="1. gdb下载与编译"></a>1. gdb下载与编译</h1><pre><code class="kotlin">download: https://www.gnu.org/software/gdb/
+./configure --prefix=/usr
+make -sj
+make install -sj</code></pre>
+<h1 id="2-thread相关用法"><a href="#2-thread相关用法" class="headerlink" title="2. thread相关用法"></a>2. thread相关用法</h1><pre><code class="kotlin">info threads #查看所有threads信息
+break thread_test.c:123 thread all/number
+thread apply ID1 commands #线程执行到ID1断点时执行commands后面的命令
+set scheduler-locking off/on #锁定本线程</code></pre>
+<h1 id="3-100个GDB用法"><a href="#3-100个GDB用法" class="headerlink" title="3. 100个GDB用法"></a>3. 100个GDB用法</h1><p><a href="https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md" target="_blank" rel="noopener">https://github.com/hellogcc/100-gdb-tips/blob/master/src/index.md</a></p>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>GDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode刷题-二叉树专题</title>
+    <url>/2020/04/05/leetcode%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<p>剑指offer33：二叉搜索树的后序遍历序列</p>
+<pre><code class="c++">bool VerifySequenceOfBST(int sequence[], int length)
+{
+    if (sequence == NULL || length &lt;= 0) {
+        return false;
+    }
+    int root = sequence[length - 1]; //后序遍历最后是根节点
+    int i = 0;
+    for (i = 0; i &lt; length - 1; i++) {
+        if (sequence[i] &gt; root) {
+            break;
+        }
+    }
+    int j = i;
+    for (; j &lt; length - 1; j++) {
+        if (sequence[j] &lt; root) {
+            return false;
+        }
+    }
+    bool left = true;
+    if(i &gt; 0) {
+        left = VerifySequenceOfBST(sequence, i);
+    }
+    bool right = true;
+    if (i &lt; length - 1) {
+        right = VerifySequenceOfBST(sequence + i, length - i - 1);
+    }
+    return left &amp;&amp; right;
+}</code></pre>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode 数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode刷题-链表</title>
+    <url>/2020/04/06/leetcode%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode 数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode刷题-LRU &amp; LFU</title>
+    <url>/2020/04/05/lfu&amp;lru/</url>
+    <content><![CDATA[<p>选自leetcode 题解</p>
+<pre><code>class LRUCache {
+private:
+    int cap;
+    // 双链表：装着 (key, value) 元组
+    list&lt;pair&lt;int, int&gt;&gt; cache;
+    // 哈希表：key 映射到 (key, value) 在 cache 中的位置
+    unordered_map&lt;int, list&lt;pair&lt;int, int&gt;&gt;::iterator&gt; map;
+public:
+    LRUCache(int capacity) {
+        this-&gt;cap = capacity; 
+    }
+
+    int get(int key) {
+        auto it = map.find(key);
+        // 访问的 key 不存在
+        if (it == map.end()) return -1;
+        // key 存在，把 (k, v) 换到队头
+        pair&lt;int, int&gt; kv = *map[key];
+        cache.erase(map[key]);
+        cache.push_front(kv);
+        // 更新 (key, value) 在 cache 中的位置
+        map[key] = cache.begin();
+        return kv.second; // value
+    }
+
+    void put(int key, int value) {
+
+        /* 要先判断 key 是否已经存在 */ 
+        auto it = map.find(key);
+        if (it == map.end()) {
+            /* key 不存在，判断 cache 是否已满 */ 
+            if (cache.size() == cap) {
+                // cache 已满，删除尾部的键值对腾位置
+                // cache 和 map 中的数据都要删除
+                auto lastPair = cache.back();
+                int lastKey = lastPair.first;
+                map.erase(lastKey);
+                cache.pop_back();
+            }
+            // cache 没满，可以直接添加
+            cache.push_front(make_pair(key, value));
+            map[key] = cache.begin();
+        } else {
+            /* key 存在，更改 value 并换到队头 */
+            cache.erase(map[key]);
+            cache.push_front(make_pair(key, value));
+            map[key] = cache.begin();
+        }
+    }
+};</code></pre>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode 数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>postgres PGPROC</title>
+    <url>/2020/04/05/pg_PGPROC/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>postgres</category>
+      </categories>
+      <tags>
+        <tag>postgres</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>postgres parser模块</title>
+    <url>/2020/04/05/pg_parser/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>postgres</category>
+      </categories>
+      <tags>
+        <tag>postgres</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>postgres优质资源</title>
+    <url>/2020/04/04/tech/</url>
+    <content><![CDATA[<ol>
+<li><p><a href="https://github.com/ty4z2008/Qix/blob/master/pg.md" target="_blank" rel="noopener">Postgres最全资源合集</a> </p>
+</li>
+<li><p><a href="https://blog.csdn.net/BeiiGang/category_947307.html" target="_blank" rel="noopener">postgres启动过程的那些事</a></p>
+</li>
+<li><p><a href="https://blog.hidva.com/" target="_blank" rel="noopener">hidva</a></p>
+</li>
+<li><p><a href="http://mysql.taobao.org/monthly/" target="_blank" rel="noopener">阿里数据库内核月报</a></p>
+</li>
+<li><p><a href="https://doxygen.postgresql.org/" target="_blank" rel="noopener">pg源码</a></p>
+</li>
+<li><p><a href="https://yq.aliyun.com/teams/381" target="_blank" rel="noopener">阿里云pg社区</a></p>
+</li>
+<li><p><a href="https://www.pgcon.org/2019" target="_blank" rel="noopener">pgconference</a></p>
+</li>
+<li><p><a href="http://blog.itpub.net/6906" target="_blank" rel="noopener">pg源码解读</a></p>
+</li>
+<li><p><a href="http://dblab.xmu.edu.cn/sites/default/files/files/linziyu-Architecture%20of%20a%20Database%20System(Chinese%20Version)-ALL.pdf" target="_blank" rel="noopener">architecture of a Database System</a></p>
+</li>
+<li><p>分布式系统（<a href="https://github.com/Vonng/ddia" target="_blank" rel="noopener">DDIA</a>, <a href="https://www.zhihu.com/question/29597104" target="_blank" rel="noopener">MIT6.824</a>）</p>
+</li>
+<li><p>MIT6.824 <a href="https://github.com/chaozh/MIT-6.824" target="_blank" rel="noopener">6.824</a> </p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>postgres</category>
+      </categories>
+      <tags>
+        <tag>postgres</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis 在windows下的安装</title>
+    <url>/2020/03/15/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<ol>
+<li><p>windows10上直接在应用商店下载ubuntu即可使用linux，linux 安装地址为C:\Users\（USER）\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\awakeljw</p>
+</li>
+<li><p>redis下载见下方博客文章<a href="https://www.cnblogs.com/HowieYuan/p/9259597.html" target="_blank" rel="noopener">https://www.cnblogs.com/HowieYuan/p/9259597.html</a></p>
+</li>
+<li><p>使用时先执行src/redis-server,接着再新的窗口执行redis-cli</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux script</title>
+    <url>/2020/03/29/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="1-find-exec-xargs"><a href="#1-find-exec-xargs" class="headerlink" title="1. find + exec(xargs)"></a>1. find + exec(xargs)</h2><pre><code class="kotlin">find ./ \(-path &#39;./software&#39; -o -path &#39;./jdk&#39; \) -prune -o -name &#39;*.txt&#39; -exec ls {} \;
+等价于
+find ./ -path &#39;./software&#39; (-a)-prune -o -path &#39;./jdk&#39; (-a) -prune -o -name &#39;*.txt&#39; -exec (-print) ls {} \;</code></pre>
+<p>以上命令的意思上找到当前目录下除了software 和jdk目录的所有txt文件，通过ls命令列出来.</p>
+<p>语义如下</p>
+<pre><code>if -path ./software==true
+    -prune
+else if -path ./jdk == true
+    -prune
+else
+    -name &#39;*.txt&#39; -exec ls {} \;</code></pre><p>当然也可以-exec也可以使用xargs来代替，比如</p>
+<pre><code class="kotlin">find ./ \(-path &#39;./software&#39; -o -path &#39;./jdk&#39; \) -prune -o -name &#39;*.txt&#39; - print0|xargs -0 echo
+等价于
+find ./ -path &#39;./software&#39; (-a)-prune -o -path &#39;./jdk&#39; (-a) -prune -o -name &#39;*.txt&#39; -print0 | xargs -0 echo</code></pre>
+<p>-exec ls {} ; 表示的是将find的结果保存在{}里面，通过exec后面的命令来执行， ; 表示转义，表示exec命令截至。</p>
+<p>xargs是通过管道将find的结果传输到echo命令中，这里使用-print0 和 xargs -0 bi表示find的多个结果之间通过NULL连接，xargs通过NULL来分割，防止一些奇怪的符号出现。</p>
+<h2 id="2-find-sed"><a href="#2-find-sed" class="headerlink" title="2. find + sed"></a>2. find + sed</h2><pre><code>find ./ type f -name &#39;*.txt&#39; /xargs sed -i &#39;s#old#new#g&#39;
+find ./ type f -name &#39;*.txt&#39; /xargs sed -i -e &#39;$a ccc&#39; -e &#39;$a bbb&#39; #-e表示多项编辑
+find ./ type f -name &#39;*.txt&#39; /xargs sed &#39;$a bbb \
+ccc&#39; #sed在文件末尾增加多行
+</code></pre><p>sed 执行命令中加上-i 参数表示在文件中实际修改，-e表示多项命令执行后输出，</p>
+<p>在执行命令中 a 表示新增，d表示删除，p表示打印</p>
+<h2 id="3-2-gt-amp-1-amp"><a href="#3-2-gt-amp-1-amp" class="headerlink" title="3. 2&gt;&amp;1 &amp;"></a>3. 2&gt;&amp;1 &amp;</h2><pre><code>make install 2&gt;&amp;1 &amp;</code></pre><p>通过0，1，2分别表示输入，输出，ERROR，上述命令表示将错误输出到OUT中，&amp;1即是输出的地方，后面&amp;表示在后台运行</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 多线程编程学习</title>
+    <url>/2019/07/21/windows-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<ol>
+<li><p>createThread() &amp; _beginthreadex()</p>
+<p>以上两个函数都是windows下的线程创建函数，CreateThread()是windows提供的API接口。其主要区别在于cerateThread()对于C语言标准库的支持并不好，这是因为C语言标准库实现时尚不具备多线程的支持。而<em>beginthreadex()则在创建新线程是分配一个</em>  _tiddaata块，用来存放线程独享的数据，从而避免其它线程更改。<br>关于二者详细的说明可以参考<a href="https://blog.csdn.net/morewindows/article/details/7421759" target="_blank" rel="noopener">https://blog.csdn.net/morewindows/article/details/7421759</a> </p>
+</li>
+<li><p>mutex 互斥锁 （0，1）,spinlock自旋锁（信号量），原子操作CAS</p>
+<p>mutex占用CPU资源，容易造成锁等待时间过长</p>
+<p>spinlock适合锁时间较短的场景，不占用CPU资源</p>
+<p>CAS即compare and swap,gcc中是__sync_val_compare_and_swap，效率更高，一般使用场景比较简单像自增等，优先使用原子操作。</p>
+</li>
+<li><p>使用示例，注意<em>编译时使用gcc thread.c -o thread -lpthread</em></p>
+</li>
+</ol>
+<pre><code class="c">#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+
+
+#define THREAD_NUM 5
+
+
+pthread_mutex_t mutex;
+pthread_spinlock_t spinlock;
+
+int inc(int* value, int add){
+        int old;
+
+        __asm__ volatile(
+                &quot;lock;xaddl %2, %1;&quot;
+                : &quot;=a&quot; (old)
+                : &quot;m&quot; (*value), &quot;a&quot; (add)
+                : &quot;cc&quot;, &quot;memory&quot;
+
+        );
+        return old;
+}
+void* thread_proc(void *arg){
+        int *count = (int*)arg;
+        int i = 0;
+
+        while(i++ &lt; 1000){
+#if 0
+                pthread_mutex_lock(&amp;mutex);
+                (*count)++;
+                pthread_mutex_unlock(&amp;mutex);
+
+                pthread_spin_lock(&amp;spinlock);
+                (*count)++;
+                pthread_spin_unlock(&amp;spinlock);
+#endif
+                inc (count, 1);
+        }
+}
+
+int main()
+{
+        int count = 0;
+        pthread_t thread_id[THREAD_NUM];
+
+        pthread_mutex_init(&amp;mutex, NULL);
+        pthread_spin_init(&amp;spinlock, PTHREAD_PROCESS_SHARED);
+
+        for (int i = 0; i &lt; THREAD_NUM; i++){
+
+                pthread_create(&amp;thread_id[i], NULL, thread_proc, &amp;count);
+
+        }
+        sleep(1);
+        for (int i = 0; i &lt; 10; i++){
+                printf(&quot;count --&gt; %d\n&quot;,count);
+                sleep(1);
+        }
+
+}</code></pre>
+<ol start="4">
+<li><p>__declspec(thread) 和__thread</p>
+<pre><code>#ifndef WIN32
+#define THR_LOCAL __thread
+#else
+#define THR_LOCAL __declspec(thread)
+endif</code></pre></li>
+</ol>
+]]></content>
+      <categories>
+        <category>thread</category>
+      </categories>
+      <tags>
+        <tag>thread</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发工具推荐</title>
+    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%86%99makefile/</url>
+    <content><![CDATA[<p>makefile<a href="https://seisman.github.io/how-to-write-makefile/introduction.html" target="_blank" rel="noopener">参考陈皓的博客</a></p>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>tool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开发工具推荐</title>
+    <url>/2020/04/06/%E4%BC%98%E8%B4%A8%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<ol>
+<li><p>文件格式转换工具：<a href="https://convertio.co/zh/" target="_blank" rel="noopener">convertio</a></p>
+</li>
+<li><p>tiddlywiki makedown日常文档记录<a href="https://tiddlywiki.com/" target="_blank" rel="noopener">https://tiddlywiki.com/</a></p>
+</li>
+<li><p>各种环境oracle ,pg g++等在线编译  <a href="https://rextester.com/" target="_blank" rel="noopener">https://rextester.com/</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>tool</category>
+      </categories>
+      <tags>
+        <tag>tool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Brute Force与KMP字符串匹配算法</title>
+    <url>/2020/03/29/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="to-do-list"><a href="#to-do-list" class="headerlink" title="to do list"></a>to do list</h2><p>参见<a href="https://zhuanlan.zhihu.com/p/83334559" target="_blank" rel="noopener">labuladong</a></p>
+<p>参见<a href="https://www.zhihu.com/question/21923021/answer/281346746" target="_blank" rel="noopener">知乎</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>进程线程协程</title>
+    <url>/2020/04/09/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B/</url>
+    <content><![CDATA[<p>to do list</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>沉默的大多数</title>
+    <url>/2020/04/11/%E6%B2%89%E9%BB%98%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0/</url>
+    <content><![CDATA[<p>4月11日，是王小波的去世的纪念日，也不知从何开始就能记住这个日子，可能我总是想把什么寄托在王小波的身上，就像沉默的大多数一样，每个人都有自己的思想，可这思想幼稚又可笑，而将它寄托在有趣的灵魂上，那这思想也不觉得有多可笑了。</p>
+<p>看过王小波的一些书，黄金时代，白银时代，黑铁时代，红拂夜奔等吧，都没怎么认真读，可是读的时候给我的感觉很不一样，有一种莫名其妙的真实感，这种感觉至少建立在逻辑上的连贯与统一，所以读起来很舒服，我们的思维方式在现代各种媒体，社交的影响下悄悄发生了改变，失去了正常思考的能力，失去了争辩的能力，就像这形形色色的书，文字，音乐，图像都在传达了统一的思想，所有人都在追求一样的东西，成功，梦想，这并不是人作为生物，高级动物的实质，但你这么想，这么做至少可以找到认同，而不这么想就只能从王小波的书里找到认同，他告诉你你的逻辑是可以的，至少有人和你一样，这也许就是对王小波的认同吧。</p>
+<p>中国文化博大精深，在这种文化下培养的人的性格可能更多偏沉默，越是背负的越多，人就越是拘束，越是沉默，越是有礼貌。我是典型的沉默的人。越是看得透的人越不愿意跟人争辩，这一点在中国的宗教中显得尤为明显，沉默的人恰好的更多的想法的人，但他们都沉默了，思想也就埋没了，而愚蠢的，恶意的思想却更容易传播，直到沉默的人也怀疑自己确实是思想出了问题。我觉得王小波的书看上去很高深，实则很简单，越是高深的东西其实往往很简单，只是人们倾向于复杂，所以反而变得趋同。有时想想，为什么我们不在沉默中爆发，是人性懦弱，胆小，怀疑，也可能自己已经把自己锁在传统当中，根本无法抽身把，可是如果我们的文字可以击败谣言或者丑陋的新闻，也去也是可以值得一试的。</p>
+<p>不得不承认的是人多少还是有天赋的差别，就像是每个人都是带着使命出生的，所以你一定要追求别人一样的梦想，或者一样的追求，看上去不过是在浪费时间，中国人已经够努力了，但还是要继续奋斗，努力奋斗，就为了所谓的成功，梦想。可你真的有梦想吗？</p>
+<p>王小波也是工程师出身，40岁才开始写作，文字中自然带有工程师的认同，这也是读王小波的书更舒服的原因吧，也许有生之年，当写作可以养活自己的时候，我也会写一篇文章，只是为了让自己舒服，让和自己同样的人舒服，就够了吧。</p>
+<p>感谢王小波先生留下的宝贵的精神财富，向您致敬。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我与博客的渊源</title>
+    <url>/2020/04/04/myblog/</url>
+    <content><![CDATA[<p>很久以前，就一直想写博客，目前最大的人生目标也是可以写一本自己的书，但写博客更多的意义更像是给自己走过的路留下一条痕迹。关于知识的理解，大致可以分为“读懂了，写下来，讲明白”三个阶段，而当你看了太多的知识，你才会明白知识的浩瀚，一个人穷尽一生，也只不过片面的看见这个世界。写博客对我来说更多的有几个好处</p>
+<ol>
+<li><p>把一些易忘的知识点积累起来，可以随时翻看</p>
+</li>
+<li><p>把一些知识写下来，可以更深刻的理解</p>
+</li>
+<li><p>记录自己学习的足迹</p>
+</li>
+<li><p>帮助同样需要学习的人</p>
+</li>
+</ol>
+<p>关于我与博客的渊源可以追溯到大学时期，最早时把博客当成了日记，但搭建博客的历程更让人怀念，同时也花费了不少时间，第一次写博客，应该是django搭建的博客，当时更多的兴趣是在django上，搭建并不困难，在搭建的过程中学习linux命令行以及python的相关知识才是更大的收获，所以第一次用VirtualBox搭建了虚拟机，装了ubuntu系统，开始了解Linux，django,按照 <a href="https://github.com/Andrew-liu/my_blog_tutorial" target="_blank" rel="noopener">https://github.com/Andrew-liu/my_blog_tutorial</a>  的教程一步步操作下来，博客就成型了。第一次写博客，每天都在解决bug,乐此不疲。当然也又尝试了flask, wordpress，总之就是折腾。但总有一天会开始觉得维护一个博客及其耗时，所以不出意外的停止更新了。</p>
+<p><img src="/2020/04/04/myblog/capture.PNG" alt></p>
+<p>第二阶段开始利用已有平台写博客，像简书，CSDN，INFOQ等等平台均有一系列优秀的程序员分享着他们的知识，那时候确实感觉到分享的快乐，特别是能够帮助其他人，但当时自己还没有什么目标，基本属于瞎学，所以博客水平实在有限，更多的是学习收藏其它人的总结，不过相比第一阶段，终于抽出时间来写点文字了。CSDN链接<a href="https://blog.csdn.net/awakeljw" target="_blank" rel="noopener">https://blog.csdn.net/awakeljw</a></p>
+<p><img src="/2020/04/04/myblog/1585972406213.png" alt></p>
+<p>第三阶段，毕业以后从事了数据库内核研发的工作，总算是确定了长期努力的方向，但毕竟基础还很差，两年的努力后又开始想要写博客，现在的博客更看重知识的积累以及弄懂了到写下来的质变，但这次肯定需要尽可能减少维护的时间，并且有更简洁的模板，以文字工作为主，所以以静态网页为主。在jekyll和hexo之间选择了hexo，只是因为hexo模板更喜欢一点，并且更简单的部署方式.两者都支持markdown语法，写起来也是很方便，挂载在Github Page上面，除了访问速度较慢之外也算是比较省心了。<a href="https://awakeljw.github.io/">https://awakeljw.github.io/</a></p>
+<p><img src="/2020/04/04/myblog/1585972803493.png" alt></p>
+<p>当然，现在也可以使用GitBook, Docsify, HEXO, Nuxt等来渲染静态网页，效果都非常不错。可以参考  <a href="https://vuepress.vuejs.org/guide/#why-not" target="_blank" rel="noopener">vuepress</a>。也许不久会将一系列知识总结成一本书，一本在线电子书。</p>
+<p>关于对博客的理解，引用叶落阁<a href="https://yelog.org/" target="_blank" rel="noopener">https://yelog.org/</a> （3-HEXO模板设计者）的一个总结，我觉得心有戚戚焉。</p>
+<p>喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>希望能坚持写下去，我相信知识的积累总会带来质变，同时也会带来更多的成就感，也算是给自己与博客折腾的渊源写上一个总结吧。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>世界的2%--致敬马自达</title>
+    <url>/2020/04/12/%E4%B8%96%E7%95%8C%E7%9A%842%25/</url>
+    <content><![CDATA[<p>如果这个世界上有什么公司能让你觉得十分有趣并且让人心生敬意，那马自达应该当属其一了，除了那广为流传的“只为了市占率的2%”以及心心念念的转子发动机，马自达保持了一个小众品牌该有的倔强，而这一点倔强不会让它更强，更好，但它应该赢得所有人的赞赏。</p>
+<p>在当代的社会中，大多数人没有独立思考的能力，只是被这个社会传递的价值观所裹挟，一路高歌，一路努力，胜者为王，败者为寇。在商业化越是快速发展的社会中尤为明显。财富积累的越快自然被认为是越有潜力。但这个世界精彩的地方就在于尚且有小众的人在坚持着自己认为正确的事情，在中国汽车的领域中，擅长套娃与营销的大众声如其名，足够大众，企业为了消费者改变，尽力讨好，这当然没有错。但成年人世界哪有对与错之分。马自达的理念只不过击中了这世界上少数的2%而已，并也足够了。</p>
+<p>几年以前，我人生的梦想之车便确定是马自达的昂克塞拉。一个小众的品牌当然会承受着它作为小众的所有缺点，但这也是2%的精髓所在，如果你想成为小众，自然不是大众所能理解的。这不正是这个世界精彩的地方吗，物种多样性，思想多样性就是这个世界最精彩的特性。</p>
+<p>作为一个小众的人，一加，马自达都值得称赞，在这个社会纷繁复杂，形形色色的诱惑之下，不讨好任何人，只做自己最喜欢的人，这便是小众的品格。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lockfree无锁环形队列</title>
+    <url>/2020/05/05/lockfree/</url>
+    <content><![CDATA[<ol>
+<li>lockfree 无锁环形队列ring_buffer ：tail 和head来控制写和读，当(tail+1) % QUEUE_SIZE == head 时表示队列已满，tail=head时表示队列已空。</li>
+<li>linux kfifo 参考<a href="https://blog.csdn.net/chen19870707/article/details/39899743" target="_blank" rel="noopener">https://blog.csdn.net/chen19870707/article/details/39899743</a> 从中可以学到 取模运算到位运算的优化方法，以及<a href="https://blog.csdn.net/chen19870707/article/details/39896655" target="_blank" rel="noopener">memorybarrier</a> </li>
+</ol>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>leetcode刷题-回溯算法backtracing</title>
+    <url>/2020/05/05/%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<ol>
+<li><p>有序矩阵中第K<a href="https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/" target="_blank" rel="noopener">小的元素</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/" target="_blank" rel="noopener">有序矩阵中的第K个最小数组和</a></p>
+</li>
+<li><p><a href="https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/" target="_blank" rel="noopener">最小的k个数</a></p>
+</li>
+</ol>
+<p>解题方法： 二分法，set排序法</p>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+</search>
